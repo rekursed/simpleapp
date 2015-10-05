@@ -1,0 +1,20 @@
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="javascript" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
+    <base href="/">
+</head>
+<body>
+<div class="container" >
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+        <ul class="nav navbar-nav">
+            <li role="presentation" class="active"><a href="/items">Home</a></li>
+            <blaze-template name="loginButtons"></blaze-template>
+        </ul>
+            </div>
+    </nav>
+
+    <div ui-view></div>
+</div>
+<!--<div ng-include="'client/index.ng.html'"></div>-->
+</body>

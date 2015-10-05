@@ -1,0 +1,20 @@
+Here you will see the details of Item number:
+<div class="form-inline">
+    <input ng-model="item.code">
+    <input ng-model="item.name">
+    <label>Is Enabled</label>
+    <input type="checkbox" ng-model="item.enabled">
+
+
+
+    <button ng-click="save()">Save</button>
+    <button ng-click="reset()">Reset form</button>
+    <button ui-sref="items">Cancel</button>
+</div>
+
+<ul>
+    Users:
+    <li ng-repeat="user in users">
+        <div>{{ user.emails[0].address }}</div>
+    </li>
+</ul>

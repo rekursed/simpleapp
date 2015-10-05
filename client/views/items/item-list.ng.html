@@ -1,0 +1,33 @@
+<div class="container" ng-controller="ItemListCtrl">
+    <form>
+        <label>Code</label>
+        <input ng-model="newItem.code">
+        <label>Name</label>
+        <input ng-model="newItem.name">
+        <label>Enabled</label>
+        <input type="checkbox" ng-model="newItem.enabled">
+        <button ng-click="newItem.owner=$root.currentUser._id;  items.save(newItem); newParty='';">Add</button>
+        <button ng-click="removeAll()">Remove All</button>
+    </form>
+    <ul class="media-list">
+        <li dir-paginate="item in items| itemsPerPage : perPage" total-items="itemsCount.count" class="media" >
+            <div class="media-left">
+                <a href="/items/{{item.code}}">
+                    <img class="media-object"
+                         src="http://www.mazaccessories.com/media/catalog/product/cache/0/image/60x/9df78eab33525d08d6e5fb8d27136e95/f/i/fiddler-6-front.jpg"
+                         alt="...">
+                </a>
+            </div>
+            <div class="media-body" >{{#if(item.enabled)}} class="success" {{/if}}
+                <h4 class="media-heading">{{item.code}} </h4>
+                {{item.name}}
+
+                <span class="badge">{{users.find(item.owner).email}}</span>
+            </div>
+            <div class="media-right">
+                <button class="media-right" ng-click="remove(item)">X</button>
+            </div>
+        </li>
+    </ul>
+    <dir-pagination-controls on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+</div>
